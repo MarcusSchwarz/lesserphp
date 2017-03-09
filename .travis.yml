@@ -12,4 +12,10 @@ install:
   - travis_retry composer install --no-interaction --prefer-source
 
 script:
-  - composer test
+  - vendor/bin/phpunit --coverage-text --coverage-clover=${clover=build/logs/clover.xml}
+
+after_success:
+  - composer require satooshi/php-coveralls
+  - vendor/bin/coveralls -v
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover "$clover"

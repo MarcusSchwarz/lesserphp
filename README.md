@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/MarcusSchwarz/lesserphp.svg?branch=master)](https://travis-ci.org/MarcusSchwarz/lesserphp) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MarcusSchwarz/lesserphp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MarcusSchwarz/lesserphp/?branch=master)
+[![Build Status](https://travis-ci.org/MarcusSchwarz/lesserphp.svg?branch=master)](https://travis-ci.org/MarcusSchwarz/lesserphp) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MarcusSchwarz/lesserphp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MarcusSchwarz/lesserphp/?branch=master) [![Coverage Status](https://coveralls.io/repos/github/MarcusSchwarz/lesserphp/badge.svg?branch=master)](https://coveralls.io/github/MarcusSchwarz/lesserphp?branch=master)
 
 # lesserphp v0.5.1
 ### <http://github.com/MarcusSchwarz/lesserphp>

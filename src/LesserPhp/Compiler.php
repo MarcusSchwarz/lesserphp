@@ -169,7 +169,7 @@ class Compiler
      * @see tryImport()
      * @see importCss()
      */
-    private $import_css = FALSE;
+    private $import_css = false;
 
     /**
      * Constructor.
@@ -280,8 +280,9 @@ class Compiler
 
         list($top, $bottom) = $this->sortProps($root->props, true);
 
-        if ($pi['extension'] != 'css')
+        if ($pi['extension'] != 'css') {
             $this->compileImportedProps($top, $parentBlock, $out, $dir);
+        }
 
         return [true, $bottom, $parser, $dir];
     }
@@ -2212,19 +2213,20 @@ class Compiler
     }
 
     /**
-     * Import Css 
+     * Import Css
      *
      * Set allowing importing (and not compiling)
-     * 
+     *
      * @param bool $true (optional) Default, allow CSS.
-     * 
+     *
      * @return void
-     * 
+     *
      * @access public 
      *
      * @author Michael Mulligan <mike@belineperspectives.com> 
      */
-    public function importCss($true = null) {
+    public function importCss($true = null)
+    {
         if ($true === null) {
             return $this->import_css;
         } else {

@@ -2221,9 +2221,9 @@ class Compiler
      *
      * @return void
      *
-     * @access public 
+     * @access public
      *
-     * @author Michael Mulligan <mike@belineperspectives.com> 
+     * @author Michael Mulligan <mike@belineperspectives.com>
      */
     public function importCss($true = null)
     {

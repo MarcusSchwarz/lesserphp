@@ -165,6 +165,13 @@ class Compiler
     private $converter;
 
     /**
+     * @var bool Allow importing of *.css files
+     * @see tryImport()
+     * @see importCss()
+     */
+    private $import_css = false;
+
+    /**
      * Constructor.
      *
      * Hardwires dependencies for now
@@ -223,8 +230,10 @@ class Compiler
 
         $url = $this->compileValue($this->functions->e($str));
 
+        $pi = pathinfo($url);
+
         // don't import if it ends in css
-        if (substr_compare($url, '.css', -4, 4) === 0) {
+        if ($pi['extension'] == 'css' && !$this->import_css) {
             return false;
         }
 
@@ -267,11 +276,13 @@ class Compiler
             }
         }
 
-        $pi = pathinfo($realPath);
         $dir = $pi["dirname"];
 
         list($top, $bottom) = $this->sortProps($root->props, true);
-        $this->compileImportedProps($top, $parentBlock, $out, $dir);
+
+        if ($pi['extension'] != 'css') {
+            $this->compileImportedProps($top, $parentBlock, $out, $dir);
+        }
 
         return [true, $bottom, $parser, $dir];
     }
@@ -2198,6 +2209,28 @@ class Compiler
         }
 
         return $less->cachedCompile($in, $force);
+    }
+
+    /**
+     * Import Css
+     *
+     * Set allowing importing (and not compiling)
+     *
+     * @param bool $true (optional) Default, allow CSS.
+     *
+     * @return void
+     *
+     * @access public
+     *
+     * @author Michael Mulligan <mike@belineperspectives.com>
+     */
+    public function importCss($true = null)
+    {
+        if ($true === null) {
+            return $this->import_css;
+        } else {
+            $this->import_css = (bool) $true;
+        }
     }
 
     /**

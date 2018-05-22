@@ -52,3 +52,6 @@ blockquote {
 h2 {
   background: url("../images/logo.png") no-repeat;
 }
+.dynamic {
+  color: maroon;
+}

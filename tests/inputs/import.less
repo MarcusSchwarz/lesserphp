@@ -57,3 +57,6 @@ blockquote {
 
 @import "file3";
 @someOtherValue: hello-from-imports-file;
+
+@dynamicImport: "file4";
+@import @dynamicImport;

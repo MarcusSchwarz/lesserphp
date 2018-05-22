@@ -533,9 +533,9 @@ class Compiler
         $other = array_merge($other, $stack);
 
         if ($split) {
-            return [array_merge($imports, $vars), $other];
+            return [array_merge($vars, $imports, $vars), $other];
         } else {
-            return array_merge($imports, $vars, $other);
+            return array_merge($vars, $imports, $vars, $other);
         }
     }
 

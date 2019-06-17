@@ -1833,7 +1833,8 @@ class Compiler
 
         ob_start();
         $this->formatter->block($this->scope);
-        $out = ob_get_clean();
+        $out = ob_get_contents();
+        ob_end_clean();
         setlocale(LC_NUMERIC, $locale);
 
         return $out;

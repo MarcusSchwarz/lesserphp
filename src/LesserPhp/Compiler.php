@@ -950,7 +950,7 @@ class Compiler
 
         // check for a rest
         $last = end($args);
-        if ($last[0] === "rest") {
+        if ($last !== false && $last[0] === "rest") {
             $rest = array_slice($orderedValues, count($args) - 1);
             $this->set($last[1], $this->reduce(["list", " ", $rest]));
         }
@@ -1790,7 +1790,7 @@ class Compiler
         $this->pushEnv($this->env);
         $parser = new Parser($this, __METHOD__);
         foreach ($args as $name => $strValue) {
-            if ($name{0} !== '@') {
+            if ($name[0] !== '@') {
                 $name = '@' . $name;
             }
             $parser->count = 0;

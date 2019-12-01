@@ -17,7 +17,6 @@ use LesserPhp\Exception\GeneralException;
  */
 class Assertions
 {
-
     private $coerce;
 
     /**

@@ -2,6 +2,8 @@
 
 require_once __DIR__ . "/../lessc.inc.php";
 
+use PHPUnit\Framework\TestCase;
+
 // Runs all the tests in inputs/ and compares their output to ouputs/
 
 function _dump($value) {
@@ -12,7 +14,7 @@ function _quote($str) {
 	return preg_quote($str, "/");
 }
 
-class InputTest extends PHPUnit_Framework_TestCase {
+class InputTest extends TestCase {
 	protected static $importDirs = array("inputs/test-imports");
 
 	protected static $testDirs = array(

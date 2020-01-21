@@ -1,6 +1,8 @@
 <?php
 
-class ServerTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ServerTest extends TestCase
 {
 
     public function testCheckedCachedCompile()

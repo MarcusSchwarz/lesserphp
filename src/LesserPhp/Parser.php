@@ -1222,7 +1222,9 @@ nav ul {
                 if ($this->stringValue($str)) {
                     // escape parent selector, (yuck)
                     foreach ($str[2] as &$chunk) {
-                        $chunk = str_replace($this->lessc->getParentSelector(), '$&$', $chunk);
+                        if (is_string($chunk)) {
+                            $chunk = str_replace($this->lessc->getParentSelector(), '$&$', $chunk);
+                        }
                     }
 
                     $attrParts[] = $str;

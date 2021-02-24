@@ -15,6 +15,7 @@ namespace Test\Base;
  * @package LesserPhp
  */
 use LesserPhp\Compiler;
+use LesserPhp\Exception\GeneralException;
 use LesserPhp\Formatter\FormatterInterface;
 
 class CompilerTest extends \PHPUnit\Framework\TestCase
@@ -57,12 +58,11 @@ class CompilerTest extends \PHPUnit\Framework\TestCase
         ];
     }
 
-    /**
-     * @expectedException \LesserPhp\Exception\GeneralException
-     * @expectedExceptionMessage unknown value type: something
-     */
     public function testUnknownType()
     {
+        $this->expectException(GeneralException::class);
+        $this->expectExceptionMessage('unknown value type: something');
+
         $subject = new Compiler();
         $subject->compileValue(['something', 1]);
     }

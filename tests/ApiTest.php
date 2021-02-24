@@ -19,7 +19,7 @@ class ApiTest extends PHPUnit\Framework\TestCase
      */
     private $less;
 
-    public function setUp()
+    public function setUp() : void
     {
         $this->less = new \LesserPhp\Compiler();
         $this->less->setImportDirs([__DIR__ . '/inputs/test-imports']);
